@@ -57,7 +57,7 @@ monster bend "create a professional landing page for a quantum startup"
 
 ---
 
-## 🥄 Matrix Manifesto Commands
+## ⚡ Matrix Manifesto Commands
 
 ### **Neo Protocol (`matrix`)**
 Ascend to higher levels of system consciousness.
