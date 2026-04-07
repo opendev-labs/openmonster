@@ -85,7 +85,7 @@ export function printHelpScreen() {
     const title = ' OpenMonster v5.0.0 ';
     
     console.log();
-    console.log(`${colors.primary('╭')}${colors.dim('─')}${colors.primary(title)}${colors.dim('─'.repeat(width - title.length - 2))}${colors.primary('╮')}`);
+    console.log(`${colors.primary('╭')}${colors.dim('─')}${colors.primary(title)}${colors.dim('─'.repeat(width - title.length - 1))}${colors.primary('╮')}`);
     
     // Blank line
     console.log(`${colors.dim('│')}${' '.repeat(width)}${colors.dim('│')}`);
@@ -97,17 +97,16 @@ export function printHelpScreen() {
     // Logo padding
     console.log(`${colors.dim('│')}${' '.repeat(width)}${colors.dim('│')}`);
     const logoLines = [
-        `       ${colors.primary('▄▄███████▄▄')}       `,
-        `     ${colors.primary('███████████████')}     `,
-        `     ${colors.primary('██')}  ${colors.primary('███████')}  ${colors.primary('██')}     `, // Eyes
-        `     ${colors.primary('███████████████')}     `,
-        `      ${colors.primary('▀▀  ▀▀  ▀▀  ▀▀')}     `
+        `   ${colors.primary('▄▄████▄▄')}   `,
+        ` ${colors.primary('████████████')} `,
+        ` ${colors.primary('██')}  ${colors.primary('████')}  ${colors.primary('██')} `,
+        ` ${colors.primary('████████████')} `,
+        `  ${colors.primary('▀▀  ▀▀  ▀▀')}  `
     ];
     
     for (const line of logoLines) {
-        // Since we have terminal escape codes in line, standard length measurement is wrong.
-        // We know the visual length is about 25.
-        const visualLength = 25;
+        // Perfect 14-character visual length for symmetry
+        const visualLength = 14;
         const pad = Math.floor((width - visualLength) / 2);
         console.log(`${colors.dim('│')}${' '.repeat(pad)}${line}${' '.repeat(width - visualLength - pad)}${colors.dim('│')}`);
     }
