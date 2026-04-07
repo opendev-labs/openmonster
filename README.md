@@ -1,53 +1,53 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/opendev-labs/openmonster/main/assets/logo.png" width="200" alt="OpenMonster Logo">
-</p>
+<div align="center">
 
-# 👾 OpenMonster v5.5.0 — Sovereign AI Architect
+<img src="assets/logo.png" width="160" alt="OpenMonster Logo">
 
-<p align="center">
-  <img src="https://img.shields.io/badge/version-5.5.0-red?style=for-the-badge" alt="Version">
-  <img src="https://img.shields.io/badge/Aries-Protocol-orange?style=for-the-badge" alt="Protocol">
-  <img src="https://img.shields.io/badge/Spoon-Omega-green?style=for-the-badge" alt="Spoon">
-  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License">
-</p>
+# 👾 OpenMonster v5.5.0
+### The Sovereign AI Architect
+
+[![Version](https://img.shields.io/badge/version-5.5.0-D97D7D?style=for-the-badge)](https://github.com/opendev-labs/openmonster)
+[![Aries](https://img.shields.io/badge/Aries-Protocol-orange?style=for-the-badge)](https://openmonster.ai/protocol)
+[![Spoon](https://img.shields.io/badge/Spoon-Omega-green?style=for-the-badge)](https://openmonster.ai/spoon)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+
+**Build anything by chatting. Reality bending included.**
 
 ---
 
-### **"The spoon does not exist. It is only yourself that bends."**
+</div>
 
 OpenMonster is a high-fidelity, autonomous AI agent system that transforms natural language into working digital reality. Built for architects, hackers, and dreamers, it combines the reasoning of the **Aries Protocol** with the reality-bending power of the **Spoon Omega** engine.
 
-> [!TIP]
-> OpenMonster v5.5.0 "BEAT OPENCLAW" Edition is live. It features the full Matrix Triad (Neo, Trinity, Morpheus) and omni-channel automation.
+> [!IMPORTANT]
+> **OpenMonster v5.5.0 "BEAT OPENCLAW" Edition** is now live. It features the full Matrix Triad (Neo, Trinity, Morpheus) and true omni-channel automation for those who demand sovereignty.
 
 ---
 
-## ✨ Why OpenMonster?
+## 🛠️ The Architecture of Power
 
-| Feature | The Sovereign Advantage |
-| :--- | :--- |
-| **Actually Builds** | Generates production-ready code, not just markdown snippets. |
-| **Matrix Protocols** | Use `bend`, `matrix`, and `tank` to manipulate code-reality. |
-| **Trinity Hacker Queen** | Specialized module for system penetration, scanning, and rescue. |
-| **Omni-channel** | Native automation for Telegram, Discord, WhatsApp, and Google. |
-| **Sovereign** | Run locally with NanoPi (Ollama) — no cloud dependency, no subscriptions. |
+| Module | Capability | Designation |
+| :--- | :--- | :--- |
+| **Aries Engine** | Strategic reasoning and multi-step planning. | `The Brain` |
+| **Spoon Omega** | Real-time CLI & file-system manipulation. | `Reality Bending` |
+| **Trinity Hack** | Deep system penetration and build rescue. | `The Hacker Queen` |
+| **Omni-Channel** | Native Telegram, Discord, and Google links. | `The Nexus` |
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Initiating the Construct
 
-### 1. Install
+### 1. Installation
 ```bash
 npm install -g openmonster@latest
 ```
 
-### 2. Activate the Matrix
+### 2. Enter the Matrix
 ```bash
-# Enter the construct
-monster matrix --enter
-
-# Become The One
+# Unlock your potential
 monster matrix --neo
+
+# Enter the virtual construct
+monster matrix --enter
 ```
 
 ### 3. Bend Reality
@@ -57,69 +57,40 @@ monster bend "create a professional landing page for a quantum startup"
 
 ---
 
-## 🥄 The Matrix Command Suite
+## 🥄 Matrix Manifesto Commands
 
 ### **Neo Protocol (`matrix`)**
 Ascend to higher levels of system consciousness.
-- `monster matrix --neo`: Unlock enlightenment.
-- `monster matrix --status`: Check your belief vibration.
-- `monster matrix --train "Kung Fu"`: Load training simulations.
+- `monster matrix --neo`: Unlock full enlightenment.
+- `monster matrix --status`: Check your vibration level.
+- `monster matrix --train "Kung Fu"`: Load training programs.
 
 ### **The Hacker Queen (`trinity`)**
 Deep system penetration and rescue operations.
 - `monster trinity --hack "api-layer"`: Bypass restrictions.
 - `monster trinity --scan "local-network"`: Vulnerability analysis.
-- `monster trinity --whisper "Dodge this"`: Precision execution.
+- `monster trinity --whisper "Dodge this"`: Precision action.
 
 ### **The Operator (`tank`)**
-Direct access to the Universal CLI Operator.
-- `monster tank operate --reality "full-stack"`: Scaffolding at lightspeed.
-- `monster tank --free-your-mind`: Remove standard CLI constraints.
-
-### **The All-Knowing (`oracle`)**
-Consult for prophetic insight and cloud deployment.
-- `monster oracle --predict "project success"`: Strategic analysis.
-- `monster oracle --upgrade "quantum layer"`: Infrastructure evolution.
+Direct access to the Universal CLI Operator for rapid builders.
+- `monster tank operate --reality "full-stack"`: Build instantly.
+- `monster tank --free-your-mind`: Remove reality constraints.
 
 ---
 
-## 📡 Omni-channel Hub
-Connect your architect to the real world autonomously.
-```bash
-monster connect [telegram | discord | whatsapp | google]
-```
-*Once connected, the Aries Engine can autonomously send messages, create events, and interact across platforms.*
+## 🔌 Zero-Touch Upgrades (Plugins)
+OpenMonster v5.5.0 is designed for infinite evolution. Drop any `.js` consciousness module into `~/.monster/plugins/` and watch the CLI weave it into reality instantly.
 
 ---
 
-## 🔌 Zero-Touch Upgrades (Plugin System)
-OpenMonster v5.5.0 supports external consciousness modules. Add new features without touching the core!
-1. Drop `.js` files into `~/.monster/plugins/`.
-2. OpenMonster automatically weaves them into the CLI at runtime.
+## 🎨 Creative Aesthetics
+OpenMonster v5.5.0 features the **Cute Salmon Red** theme. It’s not just a tool; it’s an experience designed to be aesthetic, responsive, and sovereign in your terminal.
 
 ---
 
-## 🎨 Professional Aesthetics
-OpenMonster v5.5.0 features a premium **Cute Salmon Red** theme, inspired by the high-end terminal wizards of tomorrow. It feels alive, responsive, and sovereign.
+<div align="center">
 
----
+**Built with ❤️ by [opendev-labs](https://github.com/opendev-labs)**
+*“I can only show you the door. You're the one that has to walk through it.”*
 
-## 🤝 Contributing
-The Matrix is built by everyone. Join the collective:
-1. Fork it.
-2. Create your reality branch (`git checkout -b feature/reality-bend`).
-3. Commit your changes.
-4. Push to the branch.
-5. Open a Pull Request.
-
----
-
-## 📄 License
-MIT License. Free for architects. Dangerous for agents.
-
----
-
-<p align="center">
-  <b>Built with ❤️ by <a href="https://github.com/opendev-labs">opendev-labs</a></b><br>
-  <i>"I'm trying to free your mind, Neo. But I can only show you the door."</i>
-</p>
+</div>
