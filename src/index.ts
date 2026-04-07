@@ -270,9 +270,8 @@ program
   .command('chat')
   .description('Enter the architectural dashboard with NanoPi')
   .action(async () => {
-    console.log('\n');
-    console.log(pc.bold(`  ${emojiMap.logo} OpenMonster Installer`));
-    console.log(`  Automation with claws: minimal fuss, maximal pinch.\n`);
+    console.log(pc.bold(`  ${emojiMap.logo} OpenMonster — The Sovereign Architect`));
+    console.log(`  Harnessing the Matrix. Professional. Acute. Symmetrical.\n`);
     
     const s = spinner();
     s.start('Preparing environment');
