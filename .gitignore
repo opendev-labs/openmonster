@@ -1,1 +1,7 @@
-node_modules\ndist\n.env
+node_modules
+dist/
+.env
+.spoon-state.json
+*.log
+*.txt
+landing_page_template/

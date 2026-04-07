@@ -1,236 +1,125 @@
-# 👾 OpenMonster — Sovereign AI Architect
+<p align="center">
+  <img src="https://raw.githubusercontent.com/opendev-labs/openmonster/main/assets/logo.png" width="200" alt="OpenMonster Logo">
+</p>
 
-**Build anything by chatting.**
+# 👾 OpenMonster v5.5.0 — Sovereign AI Architect
 
-OpenMonster is an AI architect you run on your own devices. It listens, understands, and **actually builds** — websites, apps, APIs, or full projects. Just describe what you want, and OpenMonster creates it.
-
-No cloud dependency. No subscriptions. Just you, your machine, and an AI that does the work.
+<p align="center">
+  <img src="https://img.shields.io/badge/version-5.5.0-red?style=for-the-badge" alt="Version">
+  <img src="https://img.shields.io/badge/Aries-Protocol-orange?style=for-the-badge" alt="Protocol">
+  <img src="https://img.shields.io/badge/Spoon-Omega-green?style=for-the-badge" alt="Spoon">
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License">
+</p>
 
 ---
 
-## ✨ What Makes OpenMonster Different
+### **"The spoon does not exist. It is only yourself that bends."**
 
-| Feature | OpenMonster |
-|---------|-------------|
-| **Actually builds** | Creates real files, not just text responses |
-| **Local-first** | Runs entirely on your hardware |
-| **Your own AI** | Uses your custom NanoPi model |
-| **Full autonomy** | One command from idea to deployment |
-| **Privacy guaranteed** | No data leaves your machine |
+OpenMonster is a high-fidelity, autonomous AI agent system that transforms natural language into working digital reality. Built for architects, hackers, and dreamers, it combines the reasoning of the **Aries Protocol** with the reality-bending power of the **Spoon Omega** engine.
+
+> [!TIP]
+> OpenMonster v5.5.0 "BEAT OPENCLAW" Edition is live. It features the full Matrix Triad (Neo, Trinity, Morpheus) and omni-channel automation.
+
+---
+
+## ✨ Why OpenMonster?
+
+| Feature | The Sovereign Advantage |
+| :--- | :--- |
+| **Actually Builds** | Generates production-ready code, not just markdown snippets. |
+| **Matrix Protocols** | Use `bend`, `matrix`, and `tank` to manipulate code-reality. |
+| **Trinity Hacker Queen** | Specialized module for system penetration, scanning, and rescue. |
+| **Omni-channel** | Native automation for Telegram, Discord, WhatsApp, and Google. |
+| **Sovereign** | Run locally with NanoPi (Ollama) — no cloud dependency, no subscriptions. |
 
 ---
 
 ## 🚀 Quick Start
 
-**Requirements:** Node 24+ (or Node 22.16+)
-
-```bash
-# Install
-npm install -g openmonster@latest
-
-# Start building
-monster build "a personal portfolio website"
-
-# Or have a conversation
-monster chat
-```
-
-That's it. OpenMonster creates your project, writes the code, and shows you the result.
-
----
-
-## 📋 Commands
-
-| Command | What it does |
-|---------|--------------|
-| `monster chat` | Start a conversation. Tell me what you want to build. |
-| `monster build "description"` | Create a working project from your idea. |
-| `monster omega "goal"` | Complete development cycle — from planning to deployment. |
-| `monster create <type> <name>` | Generate specific files or components. |
-| `monster exec "command"` | Run shell commands through the assistant. |
-| `monster deploy` | Deploy your project to Docker or cloud. |
-
----
-
-## 💡 Examples
-
-```bash
-# Create a website
-monster build "landing page for my coffee shop"
-
-# Build a complete app
-monster omega "todo app with user authentication and tests"
-
-# Generate a component
-monster create react component UserProfile
-
-# Run commands
-monster exec "npm install express"
-
-# Deploy
-monster deploy
-```
-
----
-
-## 🔧 How It Works
-
-OpenMonster uses the **Aries Protocol** — a five-step process that turns your ideas into working software:
-
-```
-1. SENSE       I understand what you want to build
-2. ARCHITECT   I create a development plan
-3. MANIFEST    I write code to your disk
-4. VALIDATE    I test everything automatically
-5. EXPORT      I deploy your project
-```
-
-All powered by **NanoPi**, your local AI model running on Ollama.
-
----
-
-## 🧠 Your AI, Your Rules
-
-OpenMonster uses **your local NanoPi model**:
-
-```bash
-# Configure once
-monster config set llm.provider ollama
-monster config set llm.model opendev-labs/nanopi:latest
-
-# That's it. Everything runs locally.
-```
-
-No API keys. No cloud costs. No privacy concerns.
-
----
-
-## 🎯 What You Can Build
-
-- **Websites** — landing pages, portfolios, blogs, e-commerce
-- **Applications** — React, Vue, Node, Python, Go
-- **APIs** — REST, GraphQL, authentication
-- **Components** — reusable UI pieces, libraries
-- **Full projects** — from idea to deployment
-
----
-
-## 📦 Installation Options
-
-### Global install (recommended)
+### 1. Install
 ```bash
 npm install -g openmonster@latest
-monster onboard
 ```
 
-### From source
+### 2. Activate the Matrix
 ```bash
-git clone https://github.com/opendev-labs/openmonster.git
-cd openmonster
-pnpm install
-pnpm build
-pnpm openmonster onboard
+# Enter the construct
+monster matrix --enter
+
+# Become The One
+monster matrix --neo
 ```
 
-### Docker
+### 3. Bend Reality
 ```bash
-docker run -it opendev-labs/openmonster
+monster bend "create a professional landing page for a quantum startup"
 ```
 
 ---
 
-## 🔐 Security
+## 🥄 The Matrix Command Suite
 
-OpenMonster runs entirely on your machine. By default:
+### **Neo Protocol (`matrix`)**
+Ascend to higher levels of system consciousness.
+- `monster matrix --neo`: Unlock enlightenment.
+- `monster matrix --status`: Check your belief vibration.
+- `monster matrix --train "Kung Fu"`: Load training simulations.
 
-- All code stays local
-- No external API calls (unless you enable them)
-- You control what the AI can access
+### **The Hacker Queen (`trinity`)**
+Deep system penetration and rescue operations.
+- `monster trinity --hack "api-layer"`: Bypass restrictions.
+- `monster trinity --scan "local-network"`: Vulnerability analysis.
+- `monster trinity --whisper "Dodge this"`: Precision execution.
 
-For sensitive projects, use sandbox mode:
+### **The Operator (`tank`)**
+Direct access to the Universal CLI Operator.
+- `monster tank operate --reality "full-stack"`: Scaffolding at lightspeed.
+- `monster tank --free-your-mind`: Remove standard CLI constraints.
+
+### **The All-Knowing (`oracle`)**
+Consult for prophetic insight and cloud deployment.
+- `monster oracle --predict "project success"`: Strategic analysis.
+- `monster oracle --upgrade "quantum layer"`: Infrastructure evolution.
+
+---
+
+## 📡 Omni-channel Hub
+Connect your architect to the real world autonomously.
 ```bash
-monster config set sandbox.mode true
+monster connect [telegram | discord | whatsapp | google]
 ```
+*Once connected, the Aries Engine can autonomously send messages, create events, and interact across platforms.*
 
 ---
 
-## 🛠️ Configuration
-
-Minimal `~/.openmonster/config.json`:
-
-```json
-{
-  "llm": {
-    "provider": "ollama",
-    "model": "opendev-labs/nanopi:latest"
-  }
-}
-```
-
-[Full configuration guide →](https://openmonster.ai/docs/config)
+## 🔌 Zero-Touch Upgrades (Plugin System)
+OpenMonster v5.5.0 supports external consciousness modules. Add new features without touching the core!
+1. Drop `.js` files into `~/.monster/plugins/`.
+2. OpenMonster automatically weaves them into the CLI at runtime.
 
 ---
 
-## 📱 Companion Apps (Optional)
-
-OpenMonster works great from the terminal. But you can also use:
-
-- **Web UI** — chat interface in your browser
-- **macOS app** — menu bar control
-- **iOS/Android nodes** — voice input on mobile
-
-[App setup guide →](https://openmonster.ai/apps)
-
----
-
-## 🧪 Development Status
-
-- **stable** — tagged releases (vYYYY.M.D)
-- **beta** — prerelease versions with new features
-- **dev** — latest development branch
-
-Switch channels:
-```bash
-monster update --channel beta
-```
+## 🎨 Professional Aesthetics
+OpenMonster v5.5.0 features a premium **Cute Salmon Red** theme, inspired by the high-end terminal wizards of tomorrow. It feels alive, responsive, and sovereign.
 
 ---
 
 ## 🤝 Contributing
-
-OpenMonster is open source and community-driven.
-
-1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request
-
-[Contributing guide →](https://openmonster.ai/contributing)
+The Matrix is built by everyone. Join the collective:
+1. Fork it.
+2. Create your reality branch (`git checkout -b feature/reality-bend`).
+3. Commit your changes.
+4. Push to the branch.
+5. Open a Pull Request.
 
 ---
 
 ## 📄 License
-
-MIT License — free for personal and commercial use.
-
----
-
-## 🙏 Credits
-
-Built by [opendev-labs](https://github.com/opendev-labs) and the community.
-
-- **NanoPi** — the sovereign AI model powering OpenMonster
-- **OpenClaw** — for the original assistant framework
-- **Aries Protocol** — the architecture that makes autonomous building possible
+MIT License. Free for architects. Dangerous for agents.
 
 ---
 
-## 🔗 Links
-
-- [Website](https://openmonster.ai)
-- [Documentation](https://openmonster.ai/docs)
-- [GitHub](https://github.com/opendev-labs/openmonster)
-- [Discord](https://discord.gg/openmonster)
-
----
-
-**OpenMonster 👾 — Build anything by chatting.**
+<p align="center">
+  <b>Built with ❤️ by <a href="https://github.com/opendev-labs">opendev-labs</a></b><br>
+  <i>"I'm trying to free your mind, Neo. But I can only show you the door."</i>
+</p>
