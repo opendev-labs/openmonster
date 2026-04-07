@@ -2,7 +2,7 @@
 
 <img src="assets/logo.svg" width="400" alt="OpenMonster Logo">
 
-# 👾 OpenMonster v5.5.0
+# OpenMonster v5.5.0
 ### The Sovereign AI Architect
 
 [![Version](https://img.shields.io/badge/version-5.5.0-D97D7D?style=for-the-badge)](https://github.com/opendev-labs/openmonster)
