@@ -1,13 +1,19 @@
-<svg width="90" height="50" viewBox="0 0 9 5" xmlns="http://www.w3.org/2000/svg">
+<svg width="160" height="50" viewBox="0 0 16 5" xmlns="http://www.w3.org/2000/svg">
   <g fill="#D97D7D">
-    <rect x="2" y="0" width="5" height="1"/>
-    <rect x="1" y="1" width="7" height="1"/>
-    <rect x="0" y="2" width="2" height="1"/>
-    <rect x="3" y="2" width="3" height="1"/>
-    <rect x="7" y="2" width="2" height="1"/>
-    <rect x="0" y="3" width="9" height="1"/>
-    <rect x="1" y="4" width="1" height="1"/>
-    <rect x="4" y="4" width="1" height="1"/>
-    <rect x="7" y="4" width="1" height="1"/>
+    <!-- Row 1: Top (12 wide) -->
+    <rect x="2" y="0" width="12" height="1"/>
+    <!-- Row 2: Upper Body (14 wide) -->
+    <rect x="1" y="1" width="14" height="1"/>
+    <!-- Row 3: Eyes (14 wide minus slots at 3-4 and 11-12) -->
+    <rect x="1" y="2" width="2" height="1"/>
+    <rect x="5" y="2" width="6" height="1"/>
+    <rect x="13" y="2" width="2" height="1"/>
+    <!-- Row 4: Lower Body (14 wide) -->
+    <rect x="1" y="3" width="14" height="1"/>
+    <!-- Row 5: 4 Symmetrical Teeth (2 wide each) -->
+    <rect x="1" y="4" width="2" height="1"/>
+    <rect x="5" y="4" width="2" height="1"/>
+    <rect x="9" y="4" width="2" height="1"/>
+    <rect x="13" y="4" width="2" height="1"/>
   </g>
 </svg>
