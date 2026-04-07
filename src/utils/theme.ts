@@ -69,11 +69,11 @@ export const emojiMap = {
 };
 
 export const blockyLogo = `
-       ${colors.primary('▄▄████████▄▄')}
-     ${colors.primary('████████████████')}
-     ${colors.primary('██')}${pc.black('▄▄')}${colors.primary('████████')}${pc.black('▄▄')}${colors.primary('██')}
-     ${colors.primary('████████████████')}
-       ${colors.primary('▀▀  ▀▀  ▀▀  ▀▀')}
+      ${colors.primary('▄▄████████▄▄')}
+     ${colors.primary('██████████████')}
+     ${colors.primary('██')}  ${colors.primary('██████')}  ${colors.primary('██')}
+     ${colors.primary('██████████████')}
+      ${colors.primary('▀▀  ▀▀  ▀▀  ▀▀')}
 `;
 
 export function printClackLogo() {
@@ -97,16 +97,16 @@ export function printHelpScreen() {
     // Logo padding
     console.log(`${colors.dim('│')}${' '.repeat(width)}${colors.dim('│')}`);
     const logoLines = [
-        `   ${colors.primary('▄▄████▄▄')}   `,
-        ` ${colors.primary('████████████')} `,
-        ` ${colors.primary('██')}  ${colors.primary('████')}  ${colors.primary('██')} `,
-        ` ${colors.primary('████████████')} `,
-        `  ${colors.primary('▀▀  ▀▀  ▀▀')}  `
+        `  ${colors.primary('▄▄████████▄▄')}  `,
+        ` ${colors.primary('██████████████')} `,
+        ` ${colors.primary('██')}  ${colors.primary('██████')}  ${colors.primary('██')} `,
+        ` ${colors.primary('██████████████')} `,
+        ` ${colors.primary('▀▀  ▀▀  ▀▀  ▀▀')} `
     ];
     
     for (const line of logoLines) {
-        // Perfect 14-character visual length for symmetry
-        const visualLength = 14;
+        // Perfect 16-character visual length for 4-teeth symmetry
+        const visualLength = 16;
         const pad = Math.floor((width - visualLength) / 2);
         console.log(`${colors.dim('│')}${' '.repeat(pad)}${line}${' '.repeat(width - visualLength - pad)}${colors.dim('│')}`);
     }
