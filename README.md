@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/logo.svg" width="160" alt="OpenMonster Logo">
+<img src="assets/logo.svg" width="400" alt="OpenMonster Logo">
 
 # 👾 OpenMonster v5.5.0
 ### The Sovereign AI Architect
