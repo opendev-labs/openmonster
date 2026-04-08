@@ -11,7 +11,7 @@ let sharedPage: Page | null = null;
 async function getBrowserPage() {
     if (!sharedBrowser) {
         sharedBrowser = await chromium.launch({ 
-            headless: false,
+            headless: true,
             args: ['--no-sandbox', '--disable-setuid-sandbox'] 
         });
         
@@ -90,10 +90,13 @@ export async function executeTool(toolName: string, ...args: string[]) {
                         await page.evaluate(() => window.scrollBy(0, 500));
                         return `✓ Scrolled down 500px`;
 
-                    case 'inspect':
-                        // Return a compressed accessibility tree or DOM summary
+                    case 'inspect': {
+                        // Enhanced Visual Consciousness for Headless Mode
                         const tree = await (page as any).accessibility.snapshot();
-                        return JSON.stringify(tree, null, 2).slice(0, 1000) + '... [TRUNCATED]';
+                        const title = await page.title();
+                        const url = page.url();
+                        return JSON.stringify({ title, url, tree }, null, 2).slice(0, 2000) + '... [TRUNCATED]';
+                    }
                     
                     case 'screenshot':
                         const scPath = actionArgs[0] || `verify-${Date.now()}.png`;

@@ -5,12 +5,12 @@
 # OpenMonster v5.5.0
 ### The Sovereign AI Architect
 
-[![Version](https://img.shields.io/badge/version-5.5.0-D97D7D?style=for-the-badge)](https://github.com/opendev-labs/openmonster)
+[![Version](https://img.shields.io/badge/version-6.0.1-D97D7D?style=for-the-badge)](https://github.com/opendev-labs/openmonster)
 [![Aries](https://img.shields.io/badge/Aries-Protocol-orange?style=for-the-badge)](https://openmonster.ai/protocol)
-[![Spoon](https://img.shields.io/badge/Spoon-Omega-green?style=for-the-badge)](https://openmonster.ai/spoon)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+[![Headless](https://img.shields.io/badge/Headless-Elite-black?style=for-the-badge)](https://playwright.dev)
+[![Discord](https://img.shields.io/badge/Discord-Priority-blue?style=for-the-badge)](https://discord.js.org)
 
-**Build anything by chatting. Reality bending included.**
+**The Sovereign AI-User. Autonomous. Headless. Elite.**
 
 ---
 
