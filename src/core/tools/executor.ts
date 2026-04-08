@@ -37,7 +37,13 @@ export async function cleanupBrowser() {
     }
 }
 
-export async function executeTool(toolName: string, ...args: string[]) {
+export interface ToolContext {
+    google?: any;
+    discord?: any;
+    telegram?: any;
+}
+
+export async function executeTool(toolName: string, args: string[], context?: ToolContext) {
     console.log(pc.red('║ ') + pc.bold(`EXECUTING TOOL: ${toolName.toUpperCase()}`));
     
     const normalizedName = toolName.toLowerCase()
@@ -47,17 +53,20 @@ export async function executeTool(toolName: string, ...args: string[]) {
     try {
         switch (normalizedName) {
             case 'create_file':
-            case 'write_file':
+            case 'write_file': {
                 const [filePath, ...contentParts] = args;
                 const content = contentParts.join('|');
                 await fs.ensureDir(path.dirname(filePath));
                 await fs.writeFile(filePath, content);
                 return `✓ Manifested Node: ${filePath}`;
+            }
 
-            case 'run_command':
+            case 'run_command': {
                 const cmd = args.join(' ');
-                const { stdout, stderr } = await execa(cmd, { shell: true });
+                const { stdout, stderr } = await execa(cmd, { shell: true, reject: false });
+                if (stderr && !stdout) return `✘ Feedback Error: ${stderr}`;
                 return stdout || stderr || '✓ Execution Reality Stabilized.';
+            }
 
             case 'browser_action':
                 const [action, ...actionArgs] = args;
@@ -92,7 +101,15 @@ export async function executeTool(toolName: string, ...args: string[]) {
 
                     case 'inspect': {
                         // Enhanced Visual Consciousness for Headless Mode
-                        const tree = await (page as any).accessibility.snapshot();
+                        let tree = null;
+                        try {
+                            const pageAny = page as any;
+                            if (pageAny.accessibility) {
+                                tree = await pageAny.accessibility.snapshot();
+                            }
+                        } catch (e) {
+                            console.log("Accessibility snapshot failed:", e);
+                        }
                         const title = await page.title();
                         const url = page.url();
                         return JSON.stringify({ title, url, tree }, null, 2).slice(0, 2000) + '... [TRUNCATED]';
@@ -117,10 +134,15 @@ export async function executeTool(toolName: string, ...args: string[]) {
                 const buildRes = await execa('npm run build', { shell: true });
                 return buildRes.stdout || '✓ System Structure Optimized.';
 
-            case 'deploy_docker':
-                const tag = args[0] || 'openmonster-v5';
-                const dockerRes = await execa(`docker build -t ${tag} .`, { shell: true });
-                return dockerRes.stdout || '✓ Containerized Reality Exported.';
+            case 'google_calendar': {
+                if (!context?.google) return "❌ Google channel not initialized.";
+                await context.google.createCalendarEvent(args[0], new Date(args[1]), new Date(args[2] || Date.now() + 3600000));
+                return `✓ Calendar Event manifested: ${args[0]}`;
+            }
+
+            case 'report': {
+                return args.join(' ');
+            }
 
             default:
                 return `❌ Unknown tool: ${toolName}`;

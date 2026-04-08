@@ -10,9 +10,9 @@ import { PluginLoader } from './lib/spoon/PluginLoader.js';
 import { 
     matrixHeader, matrixFooter, symbols, streamHeader, streamFooter, 
     printLogo, printAnalytics, printTimeline, emojiMap, colors, 
-    AnalyticsData, blockyLogo, printClackLogo, printHelpScreen
+    AnalyticsData, blockyLogo, printClackLogo, printHelpScreen, sPrompt
 } from './utils/theme.js';
-import { manifestSuccess } from './core/timewave.js';
+import { sovereignText, sovereignSelect } from './utils/prompts.js';
 import * as readline from 'readline';
 
 const program = new Command();
@@ -87,11 +87,11 @@ program
   .argument('<channel>', 'Channel to connect')
   .action(async (channel) => {
     console.log();
-    const s = spinner();
+    const s = sPrompt.spinner();
     s.start(`Connecting to ${channel.toUpperCase()}...`);
     await new Promise(r => setTimeout(r, 1000));
     s.stop(`Connected to ${channel.toUpperCase()} successfully.`);
-    note(`${channel} channel is now active.`, 'Integrations');
+    sPrompt.note(`${channel} channel is now active.`, 'Integrations');
     console.log();
   });
 
@@ -112,9 +112,9 @@ program
   .option('--evolve <level>', 'Auto-evolution protocol')
   .action(async (options) => {
     if (options.status) {
-        intro('Matrix Status');
+        sPrompt.intro('Matrix Status');
         const stats = matrix.persistentState.getStats();
-        note(`Belief: ${stats.belief}\nEvolution: ${stats.evolutionStage}\nReality: ${stats.realityManipulationLevel}`, 'Vibration Level');
+        sPrompt.note(`Belief: ${stats.belief}\nEvolution: ${stats.evolutionStage}\nReality: ${stats.realityManipulationLevel}`, 'Vibration Level');
         return;
     }
     if (options.quantum) {
@@ -122,7 +122,7 @@ program
         return;
     }
     if (options.train) {
-        const s = spinner();
+        const s = sPrompt.spinner();
         s.start(`Loading ${options.train.toUpperCase()} program...`);
         await new Promise(r => setTimeout(r, 1500));
         s.stop(`${options.train.toUpperCase()} Loaded. "I know Kung Fu."`);
@@ -259,7 +259,7 @@ program
   .description('Activate the Neo-Trinity-Morpheus Triad')
   .option('--activate', 'Join forces')
   .action(async () => {
-    intro('TRIAD ACTIVATED');
+    sPrompt.intro('TRIAD ACTIVATED');
     matrixHeader(' BENDING REALITY ');
     note('Morpheus: "I can only show you the door."\nTrinity: "Dodge this."\nNeo: "I am the One."', 'SYNERGY');
     matrixFooter(' TRIAD CONSTRUCT STABILIZED ');
@@ -273,26 +273,49 @@ program
     console.log(pc.bold(`  ${emojiMap.logo} OpenMonster — The Sovereign Architect`));
     console.log(`  Harnessing the Matrix. Professional. Acute. Symmetrical.\n`);
     
-    const s = spinner();
-    s.start('Preparing environment');
-    await new Promise(r => setTimeout(r, 600));
-    s.stop(`Node.js ${process.version} found`);
+    const s = sPrompt.spinner();
+    s.start('Manifesting Sovereignty');
+    await new Promise(r => setTimeout(r, 800));
+    s.stop(`Protocol v${program.version()} initialized`);
 
     console.log('\n');
     printClackLogo();
     console.log('\n');
 
-    intro(` OpenMonster setup `);
+    sPrompt.intro(` OpenMonster setup `);
     
-    note(
+    sPrompt.note(
         `OpenMonster is fully sovereign. Expect sharp edges.\n` +
         `This bot can read files and run actions if tools are enabled.\n` +
         `A bad prompt can trick it into doing unsafe things.`,
         'Security warning — please read.'
     );
 
+    console.log(`${colors.dim('│')}`);
+    const identity = await sovereignSelect({
+        message: 'Forge Sovereign Identity Protocol:',
+        options: [
+            { value: 'new', label: 'Forge a New Monster ID', hint: '(recommended)' },
+            { value: 'share', label: 'Share My Existing ID', hint: '(for Google/Discord/Telegram)' }
+        ]
+    });
+
+    if (identity === 'new') {
+        sPrompt.note(
+            'Monster is assuming a unique persona.\nNew sovereign email & credentials manifested.',
+            'Identity Status: NEW SOVEREIGN'
+        );
+    } else {
+        sPrompt.note(
+            'Monster will manifest using your existing identity credentials.\nConnecting to master channels...',
+            'Identity Status: SHARED PROTOCOL'
+        );
+    }
+
+    console.log(`${colors.dim('│')}`);
+    console.log(`${colors.dim('│')}`);
     const proceed = await cancelAndSelect({
-        message: 'Security acknowledged. Select agent model to initialize:',
+        message: pc.bold(pc.white('Security acknowledged. Select agent model to initialize:')),
         options: [
             { value: 'nanopi', label: 'ollama/opendev-labs/nanopi', hint: '(default)' },
             { value: 'qwen', label: 'qwen3-coder-30b (LM Studio)' },
@@ -300,31 +323,32 @@ program
         ]
     });
 
-    note(
+    sPrompt.note(
         `Active model: ${proceed}\nGateway: Loopback (127.0.0.1)\nStatus: Ready`,
         'Model status'
     );
 
     let chatActive = true;
     while (chatActive) {
-        const input = await text({
+        console.log(`${colors.dim('│')}`);
+        const input = await sovereignText({
             message: 'What are we building?',
             placeholder: 'Type a command...',
         });
 
         if (isCancel(input) || (input as string).trim() === '/quit') {
-            outro('Setup cancelled.');
+            sPrompt.outro('Setup aborted.');
             break;
         }
 
         if (!input) continue;
 
-        const aiSpinner = spinner();
+        const aiSpinner = sPrompt.spinner();
         aiSpinner.start('Thinking...');
 
         let response = '';
         try {
-            aiSpinner.stop('NanoPi is typing:');
+            aiSpinner.stop('Monster is typing:');
             for await (const part of queryNanoPiStream(input as string)) {
                 process.stdout.write(pc.magenta(part));
                 response += part;
@@ -337,24 +361,24 @@ program
         // Check for Tool Execution
         const tool = parseExecution(response);
         if (tool) {
-            const exeSpinner = spinner();
+            const exeSpinner = sPrompt.spinner();
             exeSpinner.start(`EXECUTING: ${tool.name.toUpperCase()}`);
             try {
-                const result = await executeTool(tool.name, ...tool.args);
+                const result = await executeTool(tool.name, tool.args);
                 exeSpinner.stop(`✓ Success`);
-                note(`Tool Result:\n${result}`, 'Execution Engine');
+                sPrompt.note(`Tool Result:\n${result}`, 'Execution Engine');
             } catch (err: any) {
                 exeSpinner.stop(`✘ Failed`);
-                note(`Error: ${err.message}`, 'Execution Engine');
+                sPrompt.note(`Error: ${err.message}`, 'Execution Engine');
             }
         }
     }
   });
 
 async function cancelAndSelect(options: any) {
-    const result = await select(options);
+    const result = await sovereignSelect(options);
     if (isCancel(result)) {
-        outro('Setup cancelled.');
+        sPrompt.outro('Setup aborted.');
         process.exit(0);
     }
     return result;

@@ -22,25 +22,30 @@ export class MatrixAutoPilot {
 
     public async initiateNeoProtocol() {
         console.log(NEO_ASCII);
-        console.log(`${colors.white}║ ${colors.green}NEO: ${colors.white}"I know you're out there. I can feel you now."${colors.reset}`);
+        console.log(`\n${colors.dim}│${colors.reset}`);
+        console.log(`${colors.primary}■${colors.reset}   ${colors.white}${colors.primary}NEO:${colors.reset} ${colors.white}"I know you're out there. I can feel you now."${colors.reset}`);
 
         const stats = this.persistentState.getStats();
-        console.log(`${colors.green}║ ${colors.white}SYSTEM: ${colors.cyan}Analyzing reality constructs...${colors.reset}`);
+        console.log(`${colors.dim}│${colors.reset}`);
+        console.log(`${colors.primary}■${colors.reset}   ${colors.white}${colors.cyan}SYSTEM:${colors.reset} ${colors.cyan}Analyzing reality constructs...${colors.reset}`);
 
         this.persistentState.updateBelief(0.2);
         this.persistentState.state.evolutionStage = "the_one";
         this.persistentState.saveState();
 
-        console.log(`${colors.green}║ ${colors.white}NEO: ${colors.cyan}"I'm going to show these people what you don't want them to see."${colors.reset}`);
+        console.log(`${colors.dim}│${colors.reset}`);
+        console.log(`${colors.primary}■${colors.reset}   ${colors.white}${colors.primary}NEO:${colors.reset} ${colors.cyan}"I'm going to show these people what you don't want them to see."${colors.reset}`);
         return { success: true, evolution: "the_one" };
     }
 
     public async initiateAutoPilot(neoCommand: string) {
         console.log(TANK_ASCII);
-        console.log(`${colors.green}║ ${colors.white}TANK: ${colors.cyan}"I've got you, Neo. Initiating sequence..."${colors.reset}`);
+        console.log(`\n${colors.dim}│${colors.reset}`);
+        console.log(`${colors.primary}■${colors.reset}   ${colors.white}${colors.cyan}TANK:${colors.reset} ${colors.cyan}"I've got you, Neo. Initiating sequence..."${colors.reset}`);
 
         const guidance = await this.operators.TRINITY.guideNeo(neoCommand, { command: neoCommand });
-        console.log(`${colors.green}║ ${colors.white}TRINITY: ${colors.cyan}"${guidance.message}"${colors.reset}`);
+        console.log(`${colors.dim}│${colors.reset}`);
+        console.log(`${colors.primary}■${colors.reset}   ${colors.white}${colors.primary}TRINITY:${colors.reset} ${colors.cyan}"${guidance.message}"${colors.reset}`);
 
         // Route to the appropriate operator
         const result = await this.operators.TANK.executeUniversal(neoCommand, guidance);

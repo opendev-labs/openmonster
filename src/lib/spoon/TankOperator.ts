@@ -70,17 +70,18 @@ export class TankOperator {
     }
 
     public async executeCommand(command: string) {
-        console.log(`\n${colors.green}║ ${colors.white}EXECUTING: ${command}${colors.reset}`);
-        console.log(`${colors.green}║ ${colors.white}${'─'.repeat(60)}${colors.reset}`);
+        console.log(`\n${colors.dim}│${colors.reset}`);
+        console.log(`${colors.primary}■   EXECUTING: ${colors.reset}${colors.white}${command}${colors.reset}`);
+        console.log(`${colors.dim}╰${'─'.repeat(60)}╮${colors.reset}`);
 
         try {
             const { stdout } = await execa(command, { shell: true, stdio: 'inherit' });
-            console.log(`${colors.green}║ ${colors.white}${'─'.repeat(60)}${colors.reset}`);
-            console.log(`${colors.green}║ ${colors.white}COMMAND COMPLETED SUCCESSFULLY${colors.reset}`);
+            console.log(`${colors.dim}╭${'─'.repeat(60)}╯${colors.reset}`);
+            console.log(`${colors.primary}■   COMMAND COMPLETED SUCCESSFULLY${colors.reset}`);
             return { success: true, stdout };
         } catch (error: any) {
-            console.log(`${colors.green}║ ${colors.white}${'─'.repeat(60)}${colors.reset}`);
-            console.log(`${colors.red}║ ${colors.white}MATRIX INSTABILITY: ${error.message}${colors.reset}`);
+            console.log(`${colors.dim}╭${'─'.repeat(60)}╯${colors.reset}`);
+            console.log(`${colors.red}■   MATRIX INSTABILITY: ${colors.reset}${error.message}`);
             return { success: false, error: error.message };
         }
     }
@@ -126,7 +127,8 @@ export class TankOperator {
     }
 
     public async executeUniversal(command: string, guidance: any) {
-        console.log(`${colors.green}║ ${colors.white}TANK: Manipulating code reality...${colors.reset}`);
+        console.log(`${colors.dim}│${colors.reset}`);
+        console.log(`${colors.primary}■${colors.reset}   ${colors.white}TANK: Manipulating code reality...${colors.reset}`);
         
         await this.simulateRealityBending();
 
@@ -167,7 +169,7 @@ export class TankOperator {
         ];
 
         for (const bend of bends) {
-            console.log(`${colors.green}║ ${colors.white}${bend}${colors.reset}`);
+            console.log(`${colors.dim}│  ${colors.white}${bend}${colors.reset}`);
             await new Promise(resolve => setTimeout(resolve, 400));
         }
     }

@@ -11,10 +11,13 @@ export const colors = {
 };
 
 export const symbols = {
-    line: colors.primary('║'),
-    cornerTop: colors.primary('╔'),
-    cornerBottom: colors.primary('╚'),
+    line: colors.dim('│'),
+    cornerTopLeft: colors.dim('╭'),
+    cornerTopRight: colors.dim('╮'),
+    cornerBottomLeft: colors.dim('╰'),
+    cornerBottomRight: colors.dim('╯'),
     diamond: colors.primary('◆'),
+    square: colors.primary('■'),
     success: colors.primary('✓'),
     error: colors.error('✘'),
     gradientLine: colors.dim('─'.repeat(60))
@@ -91,46 +94,105 @@ export function printClackLogo() {
 
 export function printHelpScreen() {
     const width = 64;
-    const title = ' OpenMonster v5.0.0 ';
+    const title = ' OpenMonster v5.5.0 ';
     
     console.log();
-    console.log(`${colors.primary('╭')}${colors.dim('─')}${colors.primary(title)}${colors.dim('─'.repeat(width - title.length - 1))}${colors.primary('╮')}`);
+    const dash = colors.dim('─');
+    console.log(`${symbols.cornerTopLeft}${dash}${colors.primary(title)}${dash.repeat(width - title.length - 1)}${symbols.cornerTopRight}`);
     
     // Blank line
-    console.log(`${colors.dim('│')}${' '.repeat(width)}${colors.dim('│')}`);
+    console.log(`${symbols.line}${' '.repeat(width)}${symbols.line}`);
     
     const welcome = 'Welcome back Creator!';
     const welcomePad = Math.floor((width - welcome.length) / 2);
-    console.log(`${colors.dim('│')}${' '.repeat(welcomePad)}${pc.bold(welcome)}${' '.repeat(width - welcome.length - welcomePad)}${colors.dim('│')}`);
+    console.log(`${symbols.line}${' '.repeat(welcomePad)}${pc.bold(welcome)}${' '.repeat(width - welcome.length - welcomePad)}${symbols.line}`);
     
     // Logo padding
-    console.log(`${colors.dim('│')}${' '.repeat(width)}${colors.dim('│')}`);
+    console.log(`${symbols.line}${' '.repeat(width)}${symbols.line}`);
     
     getMonsterLogoLines().forEach(line => {
         // Precise 16-character visual length for 4-teeth symmetry
         const visualLength = 16;
         const pad = Math.floor((width - visualLength) / 2);
-        console.log(`${colors.dim('│')}${' '.repeat(pad)}${line}${' '.repeat(width - visualLength - pad)}${colors.dim('│')}`);
+        console.log(`${symbols.line}${' '.repeat(pad)}${line}${' '.repeat(width - visualLength - pad)}${symbols.line}`);
     });
     
-    console.log(`${colors.dim('│')}${' '.repeat(width)}${colors.dim('│')}`);
+    console.log(`${symbols.line}${' '.repeat(width)}${symbols.line}`);
     
-    const statusLine = `NanoPi 5.0 · Telegram / Discord · ${process.env.USER || 'Local'} OS`;
+    const statusLine = `NanoPi 5.5 · Telegram / Discord · ${process.env.USER || 'Local'} OS`;
     const statusPad = Math.floor((width - statusLine.length) / 2);
-    console.log(`${colors.dim('│')}${' '.repeat(statusPad)}${colors.dim(statusLine)}${' '.repeat(width - statusLine.length - statusPad)}${colors.dim('│')}`);
+    console.log(`${symbols.line}${' '.repeat(statusPad)}${colors.dim(statusLine)}${' '.repeat(width - statusLine.length - statusPad)}${symbols.line}`);
     
     const dirLine = `~/OpenMonster/Core`;
     const dirPad = Math.floor((width - dirLine.length) / 2);
-    console.log(`${colors.dim('│')}${' '.repeat(dirPad)}${colors.dim(dirLine)}${' '.repeat(width - dirLine.length - dirPad)}${colors.dim('│')}`);
+    console.log(`${symbols.line}${' '.repeat(dirPad)}${colors.dim(dirLine)}${' '.repeat(width - dirLine.length - dirPad)}${symbols.line}`);
     
-    console.log(`${colors.dim('│')}${' '.repeat(width)}${colors.dim('│')}`);
-    console.log(`${colors.primary('╰')}${colors.dim('─'.repeat(width))}${colors.primary('╯')}`);
+    console.log(`${symbols.line}${' '.repeat(width)}${symbols.line}`);
+    console.log(`${symbols.cornerBottomLeft}${dash.repeat(width)}${symbols.cornerBottomRight}`);
     
     console.log();
     console.log(`  ${colors.dim('↑')} Run ${pc.bold('monster chat')} to enter the architectural dashboard.`);
     console.log(`  ${colors.dim('↑')} Run ${pc.bold('monster connect <channel>')} to link integrations.`);
     console.log();
 }
+
+/**
+ * Sovereign-themed prompts to override clack defaults globally.
+ */
+import { intro, note, outro, spinner } from '@clack/prompts';
+
+export const sPrompt = {
+    intro: (message: string) => {
+        console.log(`${colors.dim('│')}`);
+        console.log(`${symbols.square}   ${pc.bold(pc.white(message))}`);
+    },
+    note: (message: string, title?: string) => {
+        const width = 64; // Standard content width
+        const line = colors.dim('│');
+        const dash = colors.dim('─');
+        
+        console.log(`${line}`);
+        if (title) {
+            const titlePart = `${symbols.square}  ${pc.bold(pc.white(title))} `;
+            // D = width - N - 1 ensures total visual length is exactly width + 4
+            const dashes = width - title.length - 1; 
+            console.log(`${titlePart}${dash.repeat(Math.max(0, dashes))}${colors.dim('╮')}`);
+        } else {
+            // square(1) + dash(width+2) + corner(1) = width + 4
+            console.log(`${symbols.square}${dash.repeat(width + 2)}${colors.dim('╮')}`);
+        }
+
+        const lines = message.split('\n');
+        for (const l of lines) {
+            const content = l.trim();
+            // line(1) + "  "(2) + content(C) + padding(width-C) + line(1) = width + 4
+            const padding = width - content.length;
+            console.log(`${line}  ${pc.gray(content)}${' '.repeat(Math.max(0, padding))}${line}`);
+        }
+        // corner(1) + dash(width+2) + corner(1) = width + 4
+        console.log(`${colors.dim('╰')}${dash.repeat(width + 2)}${colors.dim('╯')}`);
+    },
+    outro: (message: string) => {
+        console.log(`${colors.dim('│')}`);
+        console.log(`${symbols.square}  ${pc.bold(pc.white(message))}`);
+        console.log();
+    },
+    spinner: () => {
+        const s = spinner();
+        return {
+            start: (msg: string) => s.start(pc.gray(msg)),
+            stop: (msg: string) => {
+                s.stop(pc.gray(msg));
+                // Immediately overwrite the clack symbol line or just print ours
+                process.stdout.write(cursor.move(0, -1) + erase.line);
+                console.log(`${symbols.square}  ${pc.gray(msg)}`);
+            },
+            message: (msg: string) => s.message(pc.gray(msg))
+        };
+    }
+};
+
+import { cursor, erase } from 'sisteransi';
 
 export function streamHeader(role: string) {
     process.stdout.write(`\n   ${emojiMap.logo} ${pc.bold(colors.primary('monster'.toUpperCase()))}                         ${emojiMap.intelligence} ${pc.bold(pc.white('SUCCESS MODE'))}   ${emojiMap.ready} ${pc.dim('0.02ms')}\n\n`);
@@ -171,15 +233,15 @@ export function printTimeline(milestones: string[]) {
 }
 
 export function matrixHeader(title: string) {
-    console.log(`\n${symbols.cornerTop}${colors.primary('═'.repeat(60))}`);
+    console.log(`\n${symbols.cornerTopLeft}${colors.primary('═'.repeat(60))}${symbols.cornerTopRight}`);
     console.log(`${symbols.line} ${pc.bold(colors.primary(title))}`);
-    console.log(`${symbols.line}${colors.primary('─'.repeat(60))}`);
+    console.log(`${symbols.line}${colors.primary('─'.repeat(60))}${symbols.line}`);
 }
 
 export function matrixFooter(status: string) {
-    console.log(`${symbols.line}${colors.primary('─'.repeat(60))}`);
+    console.log(`${symbols.line}${colors.primary('─'.repeat(60))}${symbols.line}`);
     console.log(`${symbols.line} ${colors.dim(status)}`);
-    console.log(`${symbols.cornerBottom}${colors.primary('═'.repeat(60))}\n`);
+    console.log(`${symbols.cornerBottomLeft}${colors.primary('═'.repeat(60))}${symbols.cornerBottomRight}\n`);
 }
 
 export function chatBox(role: string, content: string, color: (s: string) => string = colors.primary) {
